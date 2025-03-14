@@ -1,4 +1,4 @@
-import { LoginScreen, RegisterScreen } from "../screens";
+import { LoginScreen, RegisterScreen, HomeScreen } from "../screens";
 
 export const routesScreen = [
   {
@@ -8,5 +8,9 @@ export const routesScreen = [
   {
     path: "/signup",
     element: <RegisterScreen />,
+  },
+  {
+    path: "/home",
+    element: <HomeScreen />,
   },
 ];

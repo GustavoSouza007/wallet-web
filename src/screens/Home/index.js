@@ -172,7 +172,7 @@ export const HomeScreen = () => {
 
       {/* Transactions List */}
       <div className="w-[90%] mx-auto flex flex-col rounded-3xl p-6 mb-4 max-sm:mb-2 bg-slate-50 overflow-hidden max-sm:w-[95%]">
-        <div className="w-full h-20 flex flex-row sticky top-0 z-10 items-center justify-between pb-4 bg-slate-50 max-sm:h-16">
+        <div className="w-full h-20 flex flex-row items-center justify-between pb-4 bg-slate-50 max-sm:h-16">
           <h2 className="font-bold text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base">
             Últimos lançamentos
           </h2>
