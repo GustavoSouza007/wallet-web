@@ -16,7 +16,7 @@ export const Input = ({
   const borderClass = error ? "border-red-500" : "border-cyan-400";
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-4">
       <label htmlFor={id} className="mb-2 font-semibold">
         {label}
       </label>

@@ -7,7 +7,7 @@ export const Button = ({
   onClick,
 }) => {
   const primary = `${className} w-full h-14 rounded-xl font-bold text-base border-2 border-solid text-slate-50 border-violet-700
-   bg-violet-700
+  bg-violet-700
   transition-all duration-500
   hover:scale-105 hover:text-slate-50
   hover:before:translate-x-[0%]
