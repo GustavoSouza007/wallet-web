@@ -91,9 +91,9 @@ export const HomeScreen = () => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col items-start justify-start bg-gray-200">
+    <div className="w-dvw h-dvh flex flex-col items-start justify-start bg-gray-200">
       {/* Header */}
-      <div className="w-full h-16 flex flex-row items-center justify-between py-6 px-28 bg-slate-50 max-lg:px-16 max-lg:py-5 max-md:px-8 max-md:py-4 max-sm:h-12 max-sm:px-4">
+      <div className="w-dvw h-16 flex flex-row items-center justify-between py-6 px-28 bg-slate-50 max-lg:px-16 max-lg:py-5 max-md:px-8 max-md:py-4 max-sm:h-12 max-sm:px-4">
         <img
           className="w-auto h-6 max-lg:h-5 max-md:h-5"
           src="/images/logo.png"
@@ -172,7 +172,7 @@ export const HomeScreen = () => {
 
       {/* Transactions List */}
       <div className="w-[90%] mx-auto flex flex-col rounded-3xl p-6 mb-4 max-sm:mb-2 bg-slate-50 overflow-hidden max-sm:w-[95%]">
-        <div className="w-full h-20 flex flex-row items-center justify-between pb-4 bg-slate-50 max-sm:h-16">
+        <div className="w-full h-20 flex flex-row sticky top-0  items-center justify-between pb-4 bg-slate-50 max-sm:h-16s">
           <h2 className="font-bold text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base">
             Últimos lançamentos
           </h2>
