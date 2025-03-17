@@ -181,7 +181,7 @@ export const HomeScreen = () => {
           </Button>
         </div>
 
-        <div className="flex-1 overflow-y-auto no-scrollbar p-6 pt-4">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 pt-4">
           {financesData.length === 0 ? (
             <div className="w-full h-full flex flex-col items-center justify-center">
               <p className="font-bold text-lg text-gray-600 text-center max-lg:text-base max-md:text-sm">
