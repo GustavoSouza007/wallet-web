@@ -50,7 +50,7 @@ export const Modal = ({ onClose, onFinanceAdded }) => {
       category: null,
     },
     validationSchema: Yup.object({
-      title: Yup.string(2, "digite no mínimo 2 caracteres.").required(
+      title: Yup.string(2, "Digite no mínimo 2 caracteres.").required(
         "Título é obrigatório."
       ),
       value: Yup.number()
@@ -70,103 +70,118 @@ export const Modal = ({ onClose, onFinanceAdded }) => {
     },
   });
 
-  // Estilização customizada para o React-Select
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      border: "2px solid #22d3ee", // Cor da borda (cyan-400)
-      borderRadius: "0.5rem", // rounded-lg
-      padding: "0.5rem", // p-2
+      border: "2px solid #22d3ee",
+      borderRadius: "0.5rem",
+      padding: "0.5rem",
       boxShadow: "none",
       "&:hover": {
-        borderColor: "#22d3ee", // Cor da borda ao passar o mouse
+        borderColor: "#22d3ee",
       },
     }),
     option: (provided, state) => ({
       ...provided,
-      padding: "0.5rem", // p-2
+      padding: "0.5rem",
       cursor: "pointer",
-      borderRadius: "0.375rem", // rounded-md
-      backgroundColor: state.isFocused ? "#f1f5f9" : "#ffffff", // bg-gray-100 no hover
-      color: state.isFocused ? "#5936CD" : "#1f2937", // text-cyan-600 e text-gray-800
+      borderRadius: "0.375rem",
+      backgroundColor: state.isFocused ? "#f1f5f9" : "#ffffff",
+      color: state.isFocused ? "#5936CD" : "#1f2937",
     }),
     menu: (provided) => ({
       ...provided,
-      marginTop: "0.5rem", // mt-2
-      border: "1px solid #e5e7eb", // border-gray-300
-      borderRadius: "0.5rem", // rounded-lg
-      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // shadow-lg
+      marginTop: "0.5rem",
+      border: "1px solid #e5e7eb",
+      borderRadius: "0.5rem",
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#1f2937", // text-gray-800
+      color: "#1f2937",
     }),
     menuList: (provided) => ({
       ...provided,
-      maxHeight: "150px", // Altura máxima da lista de opções
+      maxHeight: "150px",
       overflowY: "auto",
       "::-webkit-scrollbar": {
         width: "8px",
       },
       "::-webkit-scrollbar-thumb": {
-        backgroundColor: "#22d3ee", // Cor personalizada da barra de rolagem
+        backgroundColor: "#22d3ee",
         borderRadius: "4px",
       },
       "::-webkit-scrollbar-track": {
-        backgroundColor: "#f1f5f9", // Cor do fundo da barra de rolagem
+        backgroundColor: "#f1f5f9",
       },
     }),
   };
 
   return (
-    <div className="w-dvw h-dvh flex flex-col items-end fixed top-0 right-0 bottom-0 left-0 bg-black/20">
+    <div className="w-screen h-screen fixed top-0 right-0 bottom-0 left-0 bg-black/20 flex flex-col items-end z-20">
       <div
-        className={`w-1/4 h-dvh p-6 rounded-l-lg bg-slate-50 transform transition-transform duration-300 ${
-          isVisible ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`w-1/3 h-full p-6 bg-slate-50 transform transition-transform duration-300 overflow-y-auto
+
+          2xl:w-1/3 
+          xl:w-1/2 
+          lg:w-2/3 
+          max-lg:w-3/4
+          max-md:w-4/5
+          max-sm:w-full 
+          max-sm:p-4
+          ${isVisible ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="w-full flex flex-row items-center justify-between mb-8">
-          <h3 className="font-bold text-lg">Adicionar lançamento</h3>
-          <Button onClick={onClose} variant="smallButton">
+        <div className="w-full flex flex-row items-center justify-between mb-8   max-sm:gap-4">
+          <h3 className="font-bold text-lg max-sm:text-base">
+            Adicionar lançamento
+          </h3>
+          <Button
+            onClick={onClose}
+            variant="smallButton"
+            className="max-sm:w-full"
+          >
             Fechar
           </Button>
         </div>
-        <form onSubmit={formik.handleSubmit}>
+
+        <form
+          onSubmit={formik.handleSubmit}
+          className="space-y-6 max-sm:space-y-4"
+        >
           <Input
             id="title"
             name="title"
-            className="mb-3"
             type="text"
             label="Título"
             placeholder="Ex: Compra supermercado"
             onChange={formik.handleChange}
             value={formik.values.title}
-            error={formik.errors.title}
+            error={formik.submitCount > 0 ? formik.errors.title : undefined}
+            className="w-full"
           />
           <Input
             id="value"
             name="value"
-            className="mb-3"
             type="number"
             label="Valor"
             placeholder="R$ (Use valores negativos para despesas)"
             onChange={formik.handleChange}
             value={formik.values.value}
-            error={formik.errors.value}
+            error={formik.submitCount > 0 ? formik.errors.value : undefined}
+            className="w-full"
           />
           <Input
             id="date"
             name="date"
-            className="mb-3"
             type="date"
             label="Data"
             onChange={formik.handleChange}
             value={formik.values.date}
-            error={formik.errors.date}
+            error={formik.submitCount > 0 ? formik.errors.date : undefined}
+            className="w-full"
           />
-
-          <div className="mb-8">
-            <label htmlFor="category" className="block mb-2 font-bold">
+          <div className="space-y-2">
+            <label htmlFor="category" className="block font-bold">
               Categoria
             </label>
             <Select
@@ -176,15 +191,16 @@ export const Modal = ({ onClose, onFinanceAdded }) => {
               value={formik.values.category}
               onChange={(option) => formik.setFieldValue("category", option)}
               styles={customStyles}
+              isSearchable={false}
+              className="w-full"
             />
-            {formik.errors.category && (
+            {formik.errors.category && formik.submitCount > 0 && (
               <div className="text-red-500 text-sm">
                 {formik.errors.category}
               </div>
             )}
           </div>
-
-          <Button type="submit" className="mb-10">
+          <Button type="submit" className="max-sm:w-full">
             Adicionar
           </Button>
         </form>
