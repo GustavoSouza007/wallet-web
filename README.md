@@ -6,6 +6,10 @@ This is an finances management dashboard made with React, TailwindCSS and JavaSc
 <img src="./public/images/demo.png" alt="demo image" />
 </p>
 
+## Live Version
+
+<https://wallet-web-frontend.vercel.app/>
+
 ## Technologies Used:
 
 - React
