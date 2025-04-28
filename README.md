@@ -1,4 +1,4 @@
-# Supermarket List App
+# Wallet Web
 
 This is an finances management dashboard made with React, TailwindCSS and JavaScript. The main objective is the user add and delete finances releases (that are saved in the api), and inform him the balance of the month.
 
